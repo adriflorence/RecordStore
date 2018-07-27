@@ -98,4 +98,19 @@ describe("Record Collector", function(){
     assert.strictEqual(collector.totalValueByGenre('Indie Rock'), 38.99);
   });
 
+  it('should be able to view the most valuable record', function(){
+    collector.addRecord(record18);
+    collector.addRecord(record19);
+    collector.addRecord(record20);
+    assert.strictEqual(collector.mostValuableRecord(), record19);
+  });
+
+  it('should be able to sort their records by value', function(){
+    collector.addRecord(record18);
+    collector.addRecord(record19);
+    collector.addRecord(record20);
+    // descending from most valuable 
+    assert.deepStrictEqual(collector.sortByValue(), [record19, record20, record18]);
+  });
+
 });

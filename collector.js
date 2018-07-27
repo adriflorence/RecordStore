@@ -38,6 +38,12 @@ Collector.prototype.totalValueByGenre = function (genre) {
   return parseFloat(stringValue);
 };
 
+Collector.prototype.mostValuableRecord = function () {
+  return _.maxBy(this.collection, "price");
+};
 
+Collector.prototype.sortByValue = function () {
+  return _.sortBy(this.collection, 'price'); // add .reverse() for ascending order
+};
 
 module.exports = Collector;
