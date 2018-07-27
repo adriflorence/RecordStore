@@ -1,0 +1,17 @@
+{
+  "name": "w11d5_recordstore",
+  "version": "1.0.0",
+  "description": "The task is to use JS TDD to model a Record Store with the use of constructors and prototypes throughout.",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC"
+}
