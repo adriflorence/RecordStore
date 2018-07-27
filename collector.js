@@ -43,7 +43,17 @@ Collector.prototype.mostValuableRecord = function () {
 };
 
 Collector.prototype.sortByValue = function () {
-  return _.sortBy(this.collection, 'price'); // add .reverse() for ascending order
+  return _.sortBy(this.collection, 'price').reverse(); // add .reverse() for ascending order
+};
+
+Collector.prototype.compareValue = function (anotherCollector) {
+  if(this.totalValue() > anotherCollector.totalValue()){
+    return this;
+  } else if (this.totalValue() < anotherCollector.totalValue()) {
+    return anotherCollector;
+  } else {
+    return "equal value of records";
+  }
 };
 
 module.exports = Collector;

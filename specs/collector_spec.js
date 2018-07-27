@@ -13,6 +13,7 @@ describe("Record Collector", function(){
   beforeEach(function(){
     recordStore = new RecordStore("Steve's Record Shop", "Glasgow");
     collector = new Collector(90.00); // budget
+    anotherCollector = new Collector(130.00);
 
     record1 = new Record("Bob Seger", "Night Moves", 1976, "Rock", 14.99);
     record2 = new Record("LCD Soundsystem", "American Dream", 2017, "Electronic", 19.99);
@@ -109,8 +110,21 @@ describe("Record Collector", function(){
     collector.addRecord(record18);
     collector.addRecord(record19);
     collector.addRecord(record20);
-    // descending from most valuable 
+    // descending from most valuable
     assert.deepStrictEqual(collector.sortByValue(), [record19, record20, record18]);
+  });
+
+  it('should be able to compare the value of their collection with another collector', function(){
+    collector.addRecord(record18);
+    collector.addRecord(record19);
+    collector.addRecord(record20);
+    // console.log(collector);
+    anotherCollector.addRecord(record7);
+    anotherCollector.addRecord(record19);
+    anotherCollector.addRecord(record20);
+    // console.log(anotherCollector);
+    // console.log(collector.compareValue(anotherCollector));
+    assert.deepStrictEqual(collector.compareValue(anotherCollector), anotherCollector);
   });
 
 });
